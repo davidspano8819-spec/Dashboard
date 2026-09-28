@@ -13,7 +13,8 @@ Stato: **Blueprint approvato** (2026-09-28) → Fase L
 - [x] Repository `Dashboard` creato dall'utente e collegato a Claude
 - [x] Mail di prova da Gmail all'utente (inviata 2026-09-28)
 - [x] Pagina web con database, popolata con i 4 progetti reali
-- [ ] Esecuzione programmata di prova (lanciata, esito alle 17:00 UTC) — risolvere F-008 per Gmail
+- [x] Esecuzione programmata di prova — esito in F-010
+- [ ] **Scelta dell'utente**: come eseguire le routine (F-008/F-010)
 
 ## Fase A — Architect
 - [ ] SOP-01 … SOP-05 in `/architecture/`

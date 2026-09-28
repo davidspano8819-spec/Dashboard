@@ -204,7 +204,8 @@ proporre una modifica nella mail.
 | Repository `davidspano8819-spec/Dashboard` | clone + push | 🟢 creato dall'utente, collegato |
 | Gmail (invio) | mail di prova del 2026-09-28 | 🟢 ricevuta dall'utente |
 | Pagina web + database | pubblicazione + seed + scrittura negata a livello `interact` | 🟢 https://claude.ai/artifact/M41TgvAL4owkG3sjkHRJqb |
-| Esecuzioni programmate | routine singola `trig_014xTu9RT7F49pkg8StZ8sGD` (17:00 UTC) | 🟡 in esecuzione; Gmail non disponibile nelle sessioni nuove (F-008) |
+| Esecuzioni programmate (sessione nuova) | routine singola `trig_014xTu9RT7F49pkg8StZ8sGD`, 17:00 UTC | 🔴 parte e scrive nel database, ma senza Gmail né lettura delle sessioni (F-010) |
+| Esecuzioni programmate (risveglio di questa sessione) | promemoria `trig_01QTVDri6MDzRMbnghQGsC7v`, 17:13 UTC | 🟢 tutti gli strumenti disponibili |
 | Chat e Progetti di claude.ai | — | ⛔ non raggiungibili da strumenti: solo input manuale |
 
 ### A — Architect (A.N.T.) — proposta

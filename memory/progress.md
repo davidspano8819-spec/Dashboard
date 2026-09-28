@@ -10,3 +10,4 @@
 - Mail di prova ricevuta dall'utente.
 - Pubblicata la pagina `web/dashboard.html` con database; popolati 4 progetti, 10 tappe, 1 urgenza (J.A.R.V.I.S.).
 - Creata la routine di prova `trig_014xTu9RT7F49pkg8StZ8sGD` per le 17:00 UTC; senza connettore Gmail (F-008).
+- 17:01 UTC: prova della routine eseguita. Database aggiornato, Gmail e `list_sessions` assenti nella sessione nuova (F-010). Link bloccato fino alla scelta dell'utente.
