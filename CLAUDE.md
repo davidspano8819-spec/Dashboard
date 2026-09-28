@@ -202,7 +202,7 @@ proporre una modifica nella mail.
 | Sessioni Claude Code (`list_sessions`) | lettura del 2026-09-28 | 🟢 4 sessioni leggibili |
 | Repository GitHub (`list_repos`) | lettura del 2026-09-28 | 🟢 2 repository leggibili |
 | Repository `davidspano8819-spec/Dashboard` | clone + push | 🟢 creato dall'utente, collegato |
-| Gmail (invio) | — | ⚪ da verificare con mail di prova |
+| Gmail (invio) | mail di prova del 2026-09-28 | 🟢 inviata (id `1a0e8de39fb16739`), ricezione da confermare |
 | Pagina web + database | — | ⚪ da verificare con pubblicazione di prova |
 | Esecuzioni programmate | — | ⚪ da verificare con esecuzione di prova |
 | Chat e Progetti di claude.ai | — | ⛔ non raggiungibili da strumenti: solo input manuale |

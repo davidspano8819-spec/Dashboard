@@ -11,7 +11,7 @@ Stato: **Blueprint approvato** (2026-09-28) → Fase L
 - [x] Lettura sessioni Claude Code
 - [x] Lettura repository GitHub
 - [x] Repository `Dashboard` creato dall'utente e collegato a Claude
-- [ ] Mail di prova da Gmail all'utente
+- [x] Mail di prova da Gmail all'utente (inviata 2026-09-28)
 - [ ] Pagina web di prova con database (lettura/scrittura)
 - [ ] Esecuzione programmata di prova (una volta, poi eliminata)
 
