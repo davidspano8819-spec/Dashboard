@@ -1,0 +1,199 @@
+<title>Plancia Progetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --sunk:#E3E8ED; --ink:#15202A; --ink-2:#4A5866; --line:#D3DAE1;
+  --accent:#2446B8; --accent-soft:#E2E8FA;
+  --ok:#23804F; --ok-soft:#DFF2E7; --warn:#A86A00; --warn-soft:#FBEFD6; --crit:#B83A24; --crit-soft:#FBE3DD; --idle:#6B7785; --idle-soft:#E6EAEE;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Public Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#0F151B; --surface:#172029; --sunk:#1E2934; --ink:#E7EDF2; --ink-2:#9AA8B5; --line:#2A3743;
+  --accent:#8EA6FF; --accent-soft:#1F2B4F;
+  --ok:#5CC98C; --ok-soft:#15301F; --warn:#E8B04D; --warn-soft:#3A2C10; --crit:#FF8A73; --crit-soft:#3E1C15; --idle:#95A2AF; --idle-soft:#222D38;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F151B; --surface:#172029; --sunk:#1E2934; --ink:#E7EDF2; --ink-2:#9AA8B5; --line:#2A3743;
+  --accent:#8EA6FF; --accent-soft:#1F2B4F;
+  --ok:#5CC98C; --ok-soft:#15301F; --warn:#E8B04D; --warn-soft:#3A2C10; --crit:#FF8A73; --crit-soft:#3E1C15; --idle:#95A2AF; --idle-soft:#222D38;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:880px;margin:0 auto;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h1{font-size:30px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:13px;font-family:var(--body);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+h3{font-size:20px;font-weight:600}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header{display:grid;gap:6px}
+.sub{color:var(--ink-2);font-size:14px}
+.banner{padding:10px 14px;border-radius:10px;background:var(--warn-soft);color:var(--warn);font-size:14px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:2px}
+.tile b{font-family:var(--display);font-size:28px;font-weight:700;line-height:1.1}
+.tile span{font-size:12.5px;color:var(--ink-2)}
+.tile.crit b{color:var(--crit)} .tile.warn b{color:var(--warn)}
+section{display:grid;gap:12px}
+.today{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.today li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline}
+.today .tag{font-size:12px;font-weight:600;color:var(--ink-2);grid-row:span 2}
+.today .why{font-size:13px;color:var(--ink-2)}
+.alert{border-left:4px solid var(--crit)!important}
+.cards{display:grid;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px}
+.card-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;justify-content:space-between}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.s-active{background:var(--accent-soft);color:var(--accent)} .s-blocked{background:var(--crit-soft);color:var(--crit)}
+.s-paused{background:var(--warn-soft);color:var(--warn)} .s-done{background:var(--ok-soft);color:var(--ok)} .s-closed{background:var(--idle-soft);color:var(--idle)}
+.state{margin:0;color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2)}
+.facts .hot{color:var(--crit);font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{background:var(--sunk);border-radius:10px;padding:10px 12px}
+.box h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-2)}
+.box ul{margin:0;padding-left:18px;font-size:14px}
+.edit{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.edit label{display:grid;gap:3px;font-size:12px;color:var(--ink-2)}
+select,input[type=date]{font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 8px;min-height:36px}
+select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.manual{font-size:11.5px;color:var(--accent);font-weight:600}
+details summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent)}
+.tl{list-style:none;margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid var(--line);display:grid;gap:10px}
+.tl li{position:relative;font-size:14px}
+.tl li::before{content:"";position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--k,var(--idle))}
+.tl .k{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--k,var(--idle))}
+.k-release{--k:var(--ok)} .k-blocker{--k:var(--crit)} .k-decision{--k:var(--accent)} .k-risk{--k:var(--warn)} .k-phase_start,.k-phase_end{--k:var(--ink-2)}
+.tl .d{color:var(--ink-2)}
+footer{font-size:12.5px;color:var(--ink-2)}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:14px}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}h1{font-size:26px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Plancia Progetti</h1>
+    <div class="sub" id="asof">Caricamento dei dati…</div>
+  </header>
+  <div class="banner" id="banner" hidden></div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <h2>Oggi</h2>
+    <ul class="today" id="today"></ul>
+  </section>
+
+  <section>
+    <h2>Progetti</h2>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const STATUS = {active:"Attivo", blocked:"Bloccato", paused:"In pausa", done:"Completato", closed:"Chiuso"};
+const KIND = {decision:"Decisione", blocker:"Blocco", release:"Rilascio", risk:"Rischio", next_step:"Prossimo passo", phase_start:"Inizio fase", phase_end:"Fine fase", manual:"Nota"};
+const ORDER = {blocked:0, active:1, paused:2, done:3, closed:4};
+const st = {projects:[], milestones:[], alerts:[], meta:null, canWrite:true};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtDate = iso => iso ? new Date(iso.length === 10 ? iso + "T12:00:00" : iso).toLocaleDateString("it-IT", {day:"numeric", month:"short", year:"numeric"}) : "—";
+const daysTo = iso => Math.ceil((new Date(iso + "T23:59:59") - Date.now()) / 864e5);
+
+function toast(msg){ const t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => t.hidden = true, 2400); }
+
+function render(){
+  const P = [...st.projects].sort((a,b) => (ORDER[a.status] ?? 9) - (ORDER[b.status] ?? 9) || (b.days_idle ?? 0) - (a.days_idle ?? 0));
+  const open = P.filter(p => p.status !== "closed");
+  const stale = open.filter(p => ["active","blocked"].includes(p.status) && (p.days_idle ?? 0) >= 7);
+  const urgent = st.alerts.filter(a => !a.resolved_at && a.severity === "urgent");
+  const usage = open.reduce((s,p) => s + (p.usage?.cost_usd_to_date || 0), 0);
+
+  $("asof").textContent = st.meta?.last_run_at
+    ? `Aggiornata dall'agente il ${new Date(st.meta.last_run_at).toLocaleString("it-IT", {dateStyle:"long", timeStyle:"short"})}`
+    : "In attesa del primo aggiornamento dell'agente";
+
+  $("tiles").innerHTML = `
+    <div class="tile ${urgent.length ? "crit" : ""}"><b class="mono">${urgent.length}</b><span>urgenze aperte</span></div>
+    <div class="tile ${stale.length ? "warn" : ""}"><b class="mono">${stale.length}</b><span>fermi da 7+ giorni</span></div>
+    <div class="tile"><b class="mono">${open.filter(p => ["active","blocked","paused"].includes(p.status)).length}</b><span>progetti in corso</span></div>
+    <div class="tile"><b class="mono">$${usage.toFixed(0)}</b><span>uso stimato, equiv. API</span></div>`;
+
+  const today = [];
+  urgent.forEach(a => today.push({cls:"alert", tag:"Urgente", text:a.message, why:nameOf(a.project_id)}));
+  open.forEach(p => { if (p.deadline && daysTo(p.deadline) <= 7 && !["done","closed"].includes(p.status)) today.push({tag:"Scadenza", text:`${p.name}: ${daysTo(p.deadline) < 0 ? "scaduta" : "tra " + daysTo(p.deadline) + " giorni"}`, why:fmtDate(p.deadline)}); });
+  open.filter(p => p.status !== "done").forEach(p => (p.next_steps || []).slice(0,1).forEach(s => today.push({tag:"Da fare", text:s, why:p.name})));
+  open.filter(p => p.status === "done").forEach(p => (p.next_steps || []).slice(0,1).forEach(s => today.push({tag:"Chiusura", text:s, why:p.name})));
+  $("today").innerHTML = today.length ? today.map(t => `<li class="${t.cls || ""}"><span class="tag">${esc(t.tag)}</span><span>${esc(t.text)}</span><span class="why">${esc(t.why)}</span></li>`).join("") : `<li><span class="tag">—</span><span>Niente in sospeso per oggi.</span></li>`;
+
+  $("cards").innerHTML = P.map(card).join("");
+  const n = st.projects.length;
+  $("foot").textContent = n ? `${n} progetti · stato e scadenze modificati qui non vengono mai sovrascritti dall'agente.` : "";
+}
+
+function nameOf(id){ return st.projects.find(p => p.id === id)?.name || id; }
+
+function card(p){
+  const ms = st.milestones.filter(m => m.project_id === p.id).sort((a,b) => b.date.localeCompare(a.date));
+  const hot = ["active","blocked"].includes(p.status) && (p.days_idle ?? 0) >= 7;
+  const dl = p.deadline ? `Scadenza <span class="mono">${fmtDate(p.deadline)}</span>` : "Nessuna scadenza";
+  const list = (title, arr) => arr?.length ? `<div class="box"><h4>${title}</h4><ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
+  const dis = st.canWrite ? "" : "disabled";
+  return `<article class="card" id="p-${esc(p.id)}">
+    <div class="card-top"><h3>${esc(p.name)}</h3><span class="pill s-${esc(p.status)}">${STATUS[p.status] || esc(p.status)}</span></div>
+    <p class="state">${esc(p.current_state)}</p>
+    <div class="facts">
+      <span class="${hot ? "hot" : ""}">Ultima attività ${fmtDate(p.last_activity_at)} · <span class="mono">${p.days_idle ?? "—"}</span> gg</span>
+      <span>${dl}</span>
+      <span>${(p.sources?.repos || []).length ? esc(p.sources.repos.map(r => r.split("/")[1]).join(", ")) : "nessun repository"}</span>
+    </div>
+    <div class="cols">${list("Prossimi passi", p.next_steps)}${list("Blocchi", p.blockers)}${list("Rischi", p.risks)}</div>
+    <div class="edit">
+      <label for="st-${esc(p.id)}">Stato ${p.status_source === "manual" ? '<span class="manual">· impostato da te</span>' : ""}
+        <select id="st-${esc(p.id)}" data-id="${esc(p.id)}" data-f="status" ${dis}>${Object.entries(STATUS).map(([k,v]) => `<option value="${k}" ${k === p.status ? "selected" : ""}>${v}</option>`).join("")}</select></label>
+      <label for="dl-${esc(p.id)}">Scadenza ${p.deadline_source === "manual" ? '<span class="manual">· impostata da te</span>' : ""}
+        <input type="date" id="dl-${esc(p.id)}" data-id="${esc(p.id)}" data-f="deadline" value="${esc(p.deadline || "")}" ${dis}></label>
+    </div>
+    <details><summary>Percorso · ${ms.length} tappe</summary>
+      ${p.phase_summary ? `<p class="sub">${esc(p.phase_summary)}</p>` : ""}
+      <ol class="tl">${ms.map(m => `<li class="k-${esc(m.kind)}"><div class="k">${KIND[m.kind] || esc(m.kind)} · <span class="mono">${fmtDate(m.date)}</span></div><div>${esc(m.title)}</div>${m.detail ? `<div class="d">${esc(m.detail)}</div>` : ""}</li>`).join("")}</ol>
+    </details>
+  </article>`;
+}
+
+async function save(e){
+  const el = e.target; if (!el.dataset?.id) return;
+  const f = el.dataset.f, id = el.dataset.id;
+  const patch = f === "status" ? {status: el.value, status_source: "manual"} : {deadline: el.value || null, deadline_source: "manual"};
+  try { await st.db.doc("projects/" + id).update(patch); toast(f === "status" ? "Stato salvato" : "Scadenza salvata"); }
+  catch (err) {
+    if (err?.code === "invalid_argument") { st.canWrite = false; render(); toast("Non hai i permessi per modificare"); }
+    else toast("Salvataggio non riuscito, riprova");
+  }
+}
+
+async function start(){
+  const db = await claude.use("db");
+  if (!db) { $("asof").textContent = "Dati non disponibili in questa vista."; return; }
+  st.db = db;
+  const user = await claude.use("user");
+  if (user && (await user.can("data.write")) === false) st.canWrite = false;
+  const onErr = () => { $("banner").hidden = false; $("banner").textContent = "Connessione ai dati interrotta. Ricarica la pagina."; };
+  db.collection("projects").onSnapshot(s => { st.projects = s.docs.map(d => ({id:d.id, ...d.data()})); render(); }, onErr);
+  db.collection("milestones").onSnapshot(s => { st.milestones = s.docs.map(d => d.data()); render(); }, onErr);
+  db.collection("alerts").onSnapshot(s => { st.alerts = s.docs.map(d => d.data()); render(); }, onErr);
+  db.doc("meta/state").onSnapshot(s => { st.meta = s.exists ? s.data() : null; render(); }, onErr);
+}
+document.addEventListener("change", save);
+start();
+</script>

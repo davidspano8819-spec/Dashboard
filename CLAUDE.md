@@ -202,9 +202,9 @@ proporre una modifica nella mail.
 | Sessioni Claude Code (`list_sessions`) | lettura del 2026-09-28 | 🟢 4 sessioni leggibili |
 | Repository GitHub (`list_repos`) | lettura del 2026-09-28 | 🟢 2 repository leggibili |
 | Repository `davidspano8819-spec/Dashboard` | clone + push | 🟢 creato dall'utente, collegato |
-| Gmail (invio) | mail di prova del 2026-09-28 | 🟢 inviata (id `1a0e8de39fb16739`), ricezione da confermare |
-| Pagina web + database | — | ⚪ da verificare con pubblicazione di prova |
-| Esecuzioni programmate | — | ⚪ da verificare con esecuzione di prova |
+| Gmail (invio) | mail di prova del 2026-09-28 | 🟢 ricevuta dall'utente |
+| Pagina web + database | pubblicazione + seed + scrittura negata a livello `interact` | 🟢 https://claude.ai/artifact/M41TgvAL4owkG3sjkHRJqb |
+| Esecuzioni programmate | routine singola `trig_014xTu9RT7F49pkg8StZ8sGD` (17:00 UTC) | 🟡 in esecuzione; Gmail non disponibile nelle sessioni nuove (F-008) |
 | Chat e Progetti di claude.ai | — | ⛔ non raggiungibili da strumenti: solo input manuale |
 
 ### A — Architect (A.N.T.) — proposta
@@ -248,6 +248,7 @@ database della pagina e invia le mail.
 
 ```
 CLAUDE.md          Costituzione + stato
+/web/              Pagina web della Dashboard (pubblicata come artifact)
 /memory/           task_plan.md · findings.md · progress.md · decisions.md
 /architecture/     SOP (il "Come-Fare")
 /execution/        Script deterministici (bloccato fino ad approvazione)
